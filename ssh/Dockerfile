@@ -15,19 +15,27 @@ COPY requirements.txt /tmp/
 ARG BUILD_ARCH=amd64
 ARG HA_CLI_VERSION="4.41.0"
 ARG TTYD_VERSION="1.7.7"
-# hadolint ignore=DL3003,DL3042
+# hadolint ignore=DL3003,DL3017,DL3018,DL3019,DL3042
 RUN \
-    apk add --no-cache --virtual .build-dependencies \
+    apk list -i \
+    && apk update \
+    && apk add --upgrade \
+        musl \
+        libcrypto3 \
+        libssl3 \
+        zlib \
+#   && apk upgrade \
+    && apk add --no-cache --virtual .build-dependencies \
         bsd-compat-headers=0.7.2-r6 \
         build-base=0.5-r3 \
         cmake=3.31.7-r1 \
-        docker=28.3.3-r2 \
+        docker=28.3.3-r5 \
         json-c-dev=0.18-r1 \
         libffi-dev=3.4.8-r0 \
         libuv-dev=1.51.0-r0 \
-        openssl-dev=3.5.4-r0 \
-        python3-dev=3.12.11-r0 \
-        zlib-dev=1.3.1-r2 \
+        openssl-dev=3.5.6-r0 \
+        python3-dev=3.12.13-r0 \
+        zlib-dev=1.3.2-r0 \
     \
     && apk add --no-cache \
         ack=3.9.0-r0 \
@@ -35,11 +43,11 @@ RUN \
         alsa-utils=1.2.14-r0 \
         awake=1.0-r12 \
         bash-completion=2.16.0-r0 \
-        bind-tools=9.20.13-r0 \
+        bind-tools=9.20.22-r0 \
         bluez=5.82-r0 \
         colordiff=1.0.21-r0 \
-        docker-bash-completion=28.3.3-r2 \
-        docker-zsh-completion=28.3.3-r2 \
+        docker-bash-completion=28.3.3-r5 \
+        docker-zsh-completion=28.3.3-r5 \
         gcompat=1.1.0-r4 \
         git=2.49.1-r0 \
         htop=3.4.1-r0 \
@@ -47,8 +55,8 @@ RUN \
         libltdl=2.5.4-r1 \
         libstdc++=14.2.0-r6 \
         libuv=1.51.0-r0 \
-        libxml2-utils=2.13.8-r0 \
-        mariadb-client=11.4.8-r0 \
+        libxml2-utils=2.13.9-r0 \
+        mariadb-client=11.4.10-r0 \
         mosh=1.4.0-r14 \
         mosquitto-clients=2.0.21-r0 \
         nano-syntax=8.4-r0 \
@@ -56,14 +64,14 @@ RUN \
         ncurses=6.5_p20250503-r0 \
         net-tools=2.10-r3 \
         nmap=7.97-r0 \
-        openssh=10.0_p1-r9 \
-        openssl=3.5.4-r0 \
+        openssh=10.0_p1-r10 \
+        openssl=3.5.6-r0 \
         procps-ng=4.0.4-r3 \
         pwgen=2.08-r3 \
         pulseaudio-utils=17.0-r5 \
         py3-pip=25.1.1-r0 \
-        python3=3.12.11-r0 \
-        rsync=3.4.1-r0 \
+        python3=3.12.13-r0 \
+        rsync=3.4.1-r2 \
         sqlite=3.49.2-r1 \
         sudo=1.9.17_p2-r0 \
         tmux=3.5a-r1 \
