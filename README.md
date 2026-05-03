@@ -39,6 +39,13 @@ usability, flexibility and also provides access using a web interface.
 
 [:books: Read the full add-on documentation][docs]
 
+## Installation
+
+To install this add-on, manually add my HA-Addons repository to Home Assistant
+using [this GitHub repository][ha-addon] or by clicking the button below.
+
+[![Add Repository to HA][my-ha-badge]][my-ha-url]
+
 ## WARNING
 
 The advanced SSH & Web Terminal add-on is very powerful and gives you access
@@ -183,3 +190,6 @@ SOFTWARE.
 [ssh-audit-image]: images/ssh-audit.png
 [ssh-audit]: https://github.com/jtesta/ssh-audit
 [zsh]: https://en.wikipedia.org/wiki/Z_shell
+[ha-addon]: https://github.com/roteRakete66/app-ssh-armv7
+[my-ha-badge]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
+[my-ha-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FroteRakete66%2Fapp-ssh-armv7
